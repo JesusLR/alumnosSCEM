@@ -8,9 +8,9 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-//use App\Http\Models\Alumno;
-use App\Http\Models\Departamento;
-use App\Http\Models\Curso;
+//use App\Models\Alumno;
+use App\Models\Departamento;
+use App\Models\Curso;
 use App\Http\Helpers\Utils;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
-use App\Http\Models\Portal_configuracion;
+use App\Models\Portal_configuracion;
 
 class LoginController extends Controller
 {

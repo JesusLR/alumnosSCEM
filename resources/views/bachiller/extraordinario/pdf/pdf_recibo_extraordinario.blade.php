@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -480,7 +481,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       use Carbon\Carbon;
@@ -539,14 +540,14 @@
       </div>
       <div class="row">
         <div class="columns medium-12">
-          {{ $articulo }} estudiante {{$nombreCom}} con clave de pago {{$aluClave}} 
-          de {{$programa}}, ha realizado la inscripción al 
-          CURSO DE REGULARIZACIÓN de la asignatura {{$matNombre}} 
-          con Número de Folio {{$matClave}}. 
-          Esta inscripción tiene un costo de ${{$extPago}}, 
-          el cuál debe ser cubierto en su totalidad antes de iniciar 
-          el curso y ser pagado en la ventanilla de control escolar 
-          de la preparatoria Escuela Modelo. 
+          {{ $articulo }} estudiante {{$nombreCom}} con clave de pago {{$aluClave}}
+          de {{$programa}}, ha realizado la inscripción al
+          CURSO DE REGULARIZACIÓN de la asignatura {{$matNombre}}
+          con Número de Folio {{$matClave}}.
+          Esta inscripción tiene un costo de ${{$extPago}},
+          el cuál debe ser cubierto en su totalidad antes de iniciar
+          el curso y ser pagado en la ventanilla de control escolar
+          de la preparatoria Escuela Modelo.
           <br></br>
         </div>
       </div>
@@ -686,5 +687,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

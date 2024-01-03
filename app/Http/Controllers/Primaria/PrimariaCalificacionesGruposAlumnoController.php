@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Primaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Primaria\Primaria_calendario_calificaciones_docentes;
-use App\Http\Models\Primaria\Primaria_inscrito;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Primaria\Primaria_calendario_calificaciones_docentes;
+use App\Models\Primaria\Primaria_inscrito;
 use Auth;
 use Carbon\Carbon;
 use Yajra\DataTables\Facades\DataTables;

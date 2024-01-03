@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Primaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
+use App\Models\Curso;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;

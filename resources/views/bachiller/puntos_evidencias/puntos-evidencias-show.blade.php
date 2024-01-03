@@ -20,8 +20,8 @@
 @section('content')
 
 @php
-use App\Http\Models\Bachiller\Bachiller_inscritos_evidencias;
-use App\Http\Models\Departamento;
+use App\Models\Bachiller\Bachiller_inscritos_evidencias;
+use App\Models\Departamento;
 
     $aluClave = Auth::user()->username;
 

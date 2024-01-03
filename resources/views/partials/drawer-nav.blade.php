@@ -8,8 +8,8 @@
         </center>
     </div>
     @php
-        use App\Http\Models\Alumno;
-        use App\Http\Models\Curso;
+        use App\Models\Alumno;
+        use App\Models\Curso;
 
         /*
         $curso = Curso::whereHas('alumno', function($query) {

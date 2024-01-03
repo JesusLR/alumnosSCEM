@@ -4,7 +4,7 @@ namespace App\clases\periodos;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 
 class MetodosPeriodos
 {

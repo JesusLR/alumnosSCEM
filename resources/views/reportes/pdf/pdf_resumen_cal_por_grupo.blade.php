@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -30px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -472,7 +473,7 @@
     </style>
 	</head>
   <body>
- 
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -496,12 +497,12 @@
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
-   
+
     @foreach ($cgts as $cgt)
       <div class="row">
         <div class="columns medium-12">
           <p>
-            Período : 
+            Período :
             {{\Carbon\Carbon::parse($cgt->periodo->perFechaInicial)->day
             .'/'. \Carbon\Carbon::parse($cgt->periodo->perFechaInicial)->formatLocalized('%b')
             .'/'. \Carbon\Carbon::parse($cgt->periodo->perFechaInicial)->year
@@ -515,7 +516,7 @@
             {{$cgt->plan->programa->progNombre}}
             <span style="margin-left: 20px;">Gdo/Sem: {{$cgt->cgtGradoSemestre}}</span>
             <span style="margin-left: 20px;">Grupo: {{$cgt->cgtGrupo}}</span>
-          </p> 
+          </p>
           <p>
             Ubicac. : {{$cgt->periodo->departamento->ubicacion->ubiClave}}
             {{$cgt->periodo->departamento->ubicacion->ubiNombre}}
@@ -565,7 +566,7 @@
               <th style="font-weight: 400;"></th>
             </tr>
 
-            @php 
+            @php
               $promedioTotal = 0;
             @endphp
             @foreach ($cgt->inscritos as $inscrito)
@@ -587,15 +588,15 @@
                     @if ($tipoCalificacion == "1P" && $calif)
                       @if ($calif->inscCalificacionParcial1 < $cgt->plan->programa->escuela->departamento->depCalMinAprob)
                         <span>{{$calif->inscCalificacionParcial1}}</span>
-                      @else 
+                      @else
                         {{$calif->inscCalificacionParcial1}}
                       @endif
                     @endif
 
-                    @if ($tipoCalificacion == "2P" && $calif) 
+                    @if ($tipoCalificacion == "2P" && $calif)
                       @if ($calif->inscCalificacionParcial2 < $cgt->plan->programa->escuela->departamento->depCalMinAprob)
                         <span>{{$calif->inscCalificacionParcial2}}</span>
-                      @else 
+                      @else
                         {{$calif->inscCalificacionParcial2}}
                       @endif
                     @endif
@@ -603,7 +604,7 @@
                     @if ($tipoCalificacion == "3P" && $calif)
                       @if ($calif->inscCalificacionParcial3 < $cgt->plan->programa->escuela->departamento->depCalMinAprob)
                         <span>{{$calif->inscCalificacionParcial3}}</span>
-                      @else 
+                      @else
                         {{$calif->inscCalificacionParcial3}}
                       @endif
                     @endif
@@ -611,7 +612,7 @@
                     @if ($tipoCalificacion == "ORD" && $calif)
                       @if ($calif->inscCalificacionOrdinario < $cgt->plan->programa->escuela->departamento->depCalMinAprob)
                         <span>{{$calif->inscCalificacionOrdinario}}</span>
-                      @else 
+                      @else
                         {{$calif->inscCalificacionOrdinario}}
                       @endif
                     @endif
@@ -619,7 +620,7 @@
                     @if ($tipoCalificacion == "FINAL" && $calif)
                       @if ($calif->incsCalificacionFinal < $cgt->plan->programa->escuela->departamento->depCalMinAprob)
                         <span>{{$calif->incsCalificacionFinal}}</span>
-                      @else 
+                      @else
                         {{$calif->incsCalificacionFinal}}
                       @endif
                     @endif
@@ -628,13 +629,13 @@
                   @if ($incluyeFaltas && ($tipoCalificacion != "ORD" && $tipoCalificacion != "FINAL"))
                     <td style="">
                       @if ($calif)
-                        @if ($tipoCalificacion == "1P" && $calif->inscFaltasParcial1 > 0) 
+                        @if ($tipoCalificacion == "1P" && $calif->inscFaltasParcial1 > 0)
                           {{$calif->inscFaltasParcial1}}
                         @endif
-                        @if ($tipoCalificacion == "2P" && $calif->inscFaltasParcial2 > 0) 
+                        @if ($tipoCalificacion == "2P" && $calif->inscFaltasParcial2 > 0)
                           {{$calif->inscFaltasParcial2}}
                         @endif
-                        @if ($tipoCalificacion == "3P" && $calif->inscFaltasParcial3 > 0) 
+                        @if ($tipoCalificacion == "3P" && $calif->inscFaltasParcial3 > 0)
                           {{$calif->inscFaltasParcial3}}
                         @endif
                       @endif
@@ -642,11 +643,11 @@
                   @endif
                 @endforeach
                 <td style="width: 5px;">
-                  @php 
+                  @php
                     $materiasInscrito = $cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id);
                     $promedio = 0;
                     if ($tipoCalificacion == "1P"){
-                      $promedio = round ($materiasInscrito->sum("inscCalificacionParcial1") / $materiasInscrito->count(), 3); 
+                      $promedio = round ($materiasInscrito->sum("inscCalificacionParcial1") / $materiasInscrito->count(), 3);
                     }
                     if ($tipoCalificacion == "2P"){
                       $promedio = round ($materiasInscrito->sum("inscCalificacionParcial2") / $materiasInscrito->count(), 3);
@@ -668,13 +669,13 @@
                 <td style="width: 5px;">
                   <span>
                     @if ($tipoCalificacion == "1P" && $cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial1") > 0)
-                    
+
                       {{$cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial1")}}
                     @endif
                     @if ($tipoCalificacion == "2P" && $cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial2") > 0)
                       {{$cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial2")}}
                     @endif
-                    @if ($tipoCalificacion == "3P" && $cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial3") > 0) 
+                    @if ($tipoCalificacion == "3P" && $cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial3") > 0)
                       {{$cgt->grupoCalif->where("inscrito.curso.id", "=", $inscrito->curso->id)->sum("inscFaltasParcial3")}}
                     @endif
                   </span>
@@ -685,7 +686,7 @@
                   {{$inscrito->curso->curEstado =="P" ? "Pre": ""}}
                 </td>
               </tr>
-      
+
             @endforeach
             <tr>
               <td style="width: 5px; font-size: 10px;"></td>
@@ -694,24 +695,24 @@
                 Promedios del grupo
               </td>
               @foreach ($cgt->materias as $materia)
-                @php 
+                @php
                   $totalCalifGrupo = $cgt->grupoCalif->where("inscrito.grupo.materia.id", "=", $materia->id);
                 @endphp
 
                 <td style="">
-                  @if ($tipoCalificacion == "1P") 
+                  @if ($tipoCalificacion == "1P")
                     {{round ($totalCalifGrupo->sum("inscCalificacionParcial1")/$totalCalifGrupo->count(),3)}}
                   @endif
-                  @if ($tipoCalificacion == "2P") 
+                  @if ($tipoCalificacion == "2P")
                     {{round($totalCalifGrupo->sum("inscCalificacionParcial2")/$totalCalifGrupo->count(),3)}}
                   @endif
-                  @if ($tipoCalificacion == "3P") 
+                  @if ($tipoCalificacion == "3P")
                     {{round($totalCalifGrupo->sum("inscCalificacionParcial3")/$totalCalifGrupo->count(),3)}}
                   @endif
-                  @if ($tipoCalificacion == "ORD") 
+                  @if ($tipoCalificacion == "ORD")
                     {{round($totalCalifGrupo->sum("inscCalificacionOrdinario")/$totalCalifGrupo->count(),3)}}
                   @endif
-                  @if ($tipoCalificacion == "FINAL") 
+                  @if ($tipoCalificacion == "FINAL")
                     {{round($totalCalifGrupo->sum("incsCalificacionFinal")/$totalCalifGrupo->count(),3)}}
                   @endif
                 </td>
@@ -728,7 +729,7 @@
       @if(!$loop->last)
         <div class="page_break"></div>
       @endif
-    @endforeach 
+    @endforeach
 
 
 

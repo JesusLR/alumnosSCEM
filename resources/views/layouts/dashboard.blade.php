@@ -10,35 +10,35 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="SCEM">
         <meta name="author" content="Ing.Ismael Paredes Moreno">
-        <link rel="shortcut icon" href="{{ asset('public/images/favicon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}">
 
         {{-- FONTS-ICONS --}}
-        {!! HTML::style(asset('public/css/material_icons.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/css/material_icons.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
         {{-- CSS CORE --}}
-        {!! HTML::style(asset('public/css/materialize.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
-        {!! HTML::style(asset('public/css/style.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/css/materialize.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/css/style.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
         {{-- CSS PLUGINS --}}
-        {!! HTML::style(asset('public/vendors/perfect-scrollbar/perfect-scrollbar.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
-        {!! HTML::style(asset('public/vendors/jvectormap/jquery-jvectormap.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
-        {!! HTML::style(asset('public/vendors/flag-icon/css/flag-icon.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
-        {!! HTML::style(asset('public/vendors/sweetalert/dist/sweetalert.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/vendors/perfect-scrollbar/perfect-scrollbar.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/vendors/jvectormap/jquery-jvectormap.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/vendors/flag-icon/css/flag-icon.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/vendors/sweetalert/dist/sweetalert.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
         {{-- CSS CUSTOM --}}
-        {!! HTML::style(asset('public/css/select2.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
-        {!! HTML::style(asset('public/css/app.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/css/select2.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+        {!! HTML::style(asset('/css/app.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
         {{-- JS CORE --}}
-        {!! HTML::script(asset('public/js/jquery-3.2.1.min.js'), array('type' => 'text/javascript')) !!}
-        {!! HTML::script(asset('public/js/materialize.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/js/jquery-3.2.1.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/js/materialize.min.js'), array('type' => 'text/javascript')) !!}
         {{-- JS PRISM --}}
-        {!! HTML::script(asset('public/vendors/prism/prism.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/vendors/prism/prism.js'), array('type' => 'text/javascript')) !!}
         {{-- JS SCROLLBAR --}}
-        {!! HTML::script(asset('public/vendors/perfect-scrollbar/perfect-scrollbar.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/vendors/perfect-scrollbar/perfect-scrollbar.min.js'), array('type' => 'text/javascript')) !!}
         {{-- JS CHART --}}
-        {!! HTML::script(asset('public/vendors/chartjs/chart.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/vendors/chartjs/chart.min.js'), array('type' => 'text/javascript')) !!}
         {{-- JS PLUGINS --}}
-        {!! HTML::script(asset('public/js/plugins.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/js/plugins.js'), array('type' => 'text/javascript')) !!}
         {{-- JS SWEETALERT 2 --}}
-        {!! HTML::script(asset('public/vendors/sweetalert/dist/sweetalert.min.js'), array('type' => 'text/javascript')) !!}
-        {!! HTML::script(asset('public/js/select2.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/vendors/sweetalert/dist/sweetalert.min.js'), array('type' => 'text/javascript')) !!}
+        {!! HTML::script(asset('/js/select2.min.js'), array('type' => 'text/javascript')) !!}
         {{-- CSS LAYOUT --}}
         
         @yield('head')

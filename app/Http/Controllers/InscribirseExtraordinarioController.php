@@ -4,25 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Helpers\GenerarReferencia;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Ficha;
-use App\Http\Models\InscritoExtraordinario;
+use App\Models\Ficha;
+use App\Models\InscritoExtraordinario;
 use Carbon\Carbon;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Departamento;
-use App\Http\Models\Alumno;
-use App\Http\Models\Curso;
-use App\Http\Models\ConceptoPago;
-use App\Http\Models\Cuota;
-use App\Http\Models\PreinscritoExtraordinario;
-use App\Http\Models\Convenio;
-use App\Http\Models\Materia;
-use App\Http\Models\Portal_configuracion;
-use App\Http\Models\CalendarioExamen;
+use App\Models\Extraordinario;
+use App\Models\Departamento;
+use App\Models\Alumno;
+use App\Models\Curso;
+use App\Models\ConceptoPago;
+use App\Models\Cuota;
+use App\Models\PreinscritoExtraordinario;
+use App\Models\Convenio;
+use App\Models\Materia;
+use App\Models\Portal_configuracion;
+use App\Models\CalendarioExamen;
 use Illuminate\Support\Facades\Auth;
 use App\clases\personas\MetodosPersonas;
 use App\clases\InscripcionExtraordinario\Notificacion;
@@ -534,7 +534,7 @@ class InscribirseExtraordinarioController extends Controller
     /**
     * devuelve las materias reprobadas del alumno.
     *
-    * @param  App\Http\Models\Alumno $alumno
+    * @param  App\Models\Alumno $alumno
     * @return Collection $reprobadas
     */
     public function reprobadas_alumno($alumno) {

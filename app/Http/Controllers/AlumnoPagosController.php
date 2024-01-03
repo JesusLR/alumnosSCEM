@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Alumno;
-use App\Http\Models\Curso;
+use App\Models\Pago;
+use App\Models\Alumno;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;

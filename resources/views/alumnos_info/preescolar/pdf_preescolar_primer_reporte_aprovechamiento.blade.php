@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -478,7 +479,7 @@
       .img-foto{
         border: 2px solid #0e2e42;
         position: absolute;
-        background: orange;        
+        background: orange;
         height: 100px;
         right: 130px;
         top: 37px;
@@ -505,11 +506,11 @@
                 <img class="img-foto" style="" src="{{base_path('storage/app/public/preescolar/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPreescolarFoto) }}" alt="">
 
                 @else
-                  <img class="img-foto"  src="" alt="">    
+                  <img class="img-foto"  src="" alt="">
                 @endif
 
                 @else
-                <img class="img-foto"  src="" alt="">    
+                <img class="img-foto"  src="" alt="">
               @endif
           </div>
           </div>
@@ -655,6 +656,6 @@
       </div>
   </div>
 
-  
+
   </body>
 </html>

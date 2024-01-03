@@ -25,7 +25,7 @@
     <br>
     @php
         $contador = 1;
-        use App\Http\Models\Bachiller\Bachiller_horarios;
+        use App\Models\Bachiller\Bachiller_horarios;
     @endphp
     <style>
   

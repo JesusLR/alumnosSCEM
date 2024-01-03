@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use Exception;
 
-use App\Http\Models\Portal_configuracion;
+use App\Models\Portal_configuracion;
 
 class EncuestaController extends Controller
 {

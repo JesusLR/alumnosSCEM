@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\Alumno;
-use App\Http\Models\Ficha;
+use App\Models\Alumno;
+use App\Models\Ficha;
 use Carbon\Carbon;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use DB;
 use App\Http\Helpers\Utils;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Models\PreinscritoExtraordinario;
+use App\Models\PreinscritoExtraordinario;
 
 class FichaPreinscritoExtraordinarioController extends Controller
 {
