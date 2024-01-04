@@ -17,7 +17,7 @@
             })->latest('curFechaRegistro')->first();
         */
 
-         $results = DB::select(DB::raw("SELECT
+         $results = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           alumnos.aluEstado,
@@ -71,7 +71,7 @@
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-        );"));
+        );");
         $cursos = collect($results)->first();
         $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                  ->where("id", $cursos->cursos_id)->first();
@@ -115,7 +115,7 @@
 
                         $aluClave = Auth::user()->username;
 
-                        $results = DB::select(DB::raw("SELECT
+                        $results = DB::select("SELECT
                               cursos.id as curso_id,
                               cursos.curPlanPago,
                               cursos.curEstado,
@@ -154,7 +154,7 @@
                                 departamentos
                               WHERE
                                 depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-                            );"));
+                            );");
 
 
                         //ES REGULAR O CONDICIONADO

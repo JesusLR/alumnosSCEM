@@ -41,7 +41,7 @@ class LibretaPagoController extends Controller
           $procActualizarPlanesPago = DB::select("call procPortalAlumnosPlanPagoCurso()");
     }
 
-    $resultado = DB::select(DB::raw("SELECT
+    $resultado = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           cursos.id as 'cursos_id'
@@ -77,7 +77,7 @@ class LibretaPagoController extends Controller
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-        );"));
+        );");
     $cursoidActualAlumno = collect($resultado)->first();
 
     $userAlumnoPlanPago = DB::table("users_alumnos_planpago")
@@ -87,7 +87,7 @@ class LibretaPagoController extends Controller
     ->first();
     // dd($userAlumnoPlanPago);
 
-    $results = DB::select(DB::raw("SELECT
+    $results = DB::select("SELECT
       aluClave AS 'clave_pago',
       alumnos.id AS 'alumnos_id',
       alumnos.aluEstado,
@@ -141,10 +141,10 @@ class LibretaPagoController extends Controller
         departamentos
       WHERE
         depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-    );"));
+    );");
     $result = collect($results)->first();
 
-      $resultsPerAnterior = DB::select(DB::raw("SELECT
+      $resultsPerAnterior = DB::select("SELECT
       aluClave AS 'clave_pago',
       alumnos.id AS 'alumnos_id',
       alumnos.aluEstado,
@@ -198,7 +198,7 @@ class LibretaPagoController extends Controller
         departamentos
       WHERE
         depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-    );"));
+    );");
       $resultPerAnterior = collect($resultsPerAnterior)->first();
 
       //REVISAMOS SI CURSO EL PERIODO 3, Y FUE REGULAR
@@ -250,7 +250,7 @@ class LibretaPagoController extends Controller
           */
 
       $view_libreta_pago = Portal_configuracion::Where('pcClave', 'VIEW_PDF_LIBRETA_PAGO')->first();
-      
+
     return view('libreta_pago.create', [
       "alumno" => $alumno,
       "persona" => $persona,
@@ -269,7 +269,7 @@ class LibretaPagoController extends Controller
       $alumno = Alumno::where("aluClave", "=",$claveAlumno)->first();
       // dd($request->plan_pago);
 
-      $resultado = DB::select(DB::raw("SELECT
+      $resultado = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           cursos.id as 'cursos_id'
@@ -305,7 +305,7 @@ class LibretaPagoController extends Controller
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE')
-        );"));
+        );");
 
       $cursoidActualAlumno = collect($resultado)->first();
 
