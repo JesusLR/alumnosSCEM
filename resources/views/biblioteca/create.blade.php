@@ -31,7 +31,7 @@
               <div class="col s12 m12 l12">
               @if (Auth::user()->depClave == "SUP")
                   <a class="waves-effect  darken-3" href="{{ url('biblioteca_action') }}">
-                    <img src="{{ asset('public/images/LOGO_TOLMEX.png') }}">
+                    <img src="{{ asset('/images/LOGO_TOLMEX.png') }}">
                   </a>
                 @endif
               </div>
