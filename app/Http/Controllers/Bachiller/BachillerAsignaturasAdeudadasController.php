@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Bachiller;
 
 use DB;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Alumno;
+use App\Models\Pago;
+use App\Models\Alumno;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

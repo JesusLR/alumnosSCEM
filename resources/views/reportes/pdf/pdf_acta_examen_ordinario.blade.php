@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -490,7 +491,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
 
     @php
@@ -498,7 +499,7 @@
       $depNombreDoc = $departamento->depNombreDoc;
       $depTituloDoc = $departamento->depTituloDoc;
     @endphp
-    
+
     <div class="row">
       <div class="columns medium-6">
         <p>UNIVERSIDAD MODELO</p>
@@ -534,7 +535,7 @@
       <br>
       <div class="row" style="height: 800px;">
         <div class="columns medium-12">
-         <table class="table"> 
+         <table class="table">
           <thead>
             <tr>
                 <th align="center" style="width:15px;" class="boldFont">Num</th>
@@ -585,5 +586,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

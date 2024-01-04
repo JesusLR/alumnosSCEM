@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Models\Portal_configuracion;
+use Illuminate\Pagination\Paginator;
+use App\Models\Portal_configuracion;
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
 
@@ -20,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale(config('app.locale'));
         Schema::defaultStringLength(191);
         \Debugbar::disable();
-
+        Paginator::useBootstrap();
         $configs = Portal_configuracion::Where('pcPortal', 'A')->get();
 
         foreach ($configs as $config) {

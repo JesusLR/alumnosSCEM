@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Tutorias;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Grupo;
-use App\Http\Models\Tutorias\Tutorias_alumnos;
-use App\Http\Models\Tutorias\Tutorias_categoria_preguntas;
-use App\Http\Models\Tutorias\Tutorias_formularios;
-use App\Http\Models\Tutorias\Tutorias_opciones;
-use App\Http\Models\Tutorias\Tutorias_pregunta_respuestas;
-use App\Http\Models\Tutorias\Tutorias_preguntas;
-use App\Http\Models\Tutorias\Tutorias_respuestas;
-use App\Http\Models\Tutorias\Tutorias_usuario;
+use App\Models\Grupo;
+use App\Models\Tutorias\Tutorias_alumnos;
+use App\Models\Tutorias\Tutorias_categoria_preguntas;
+use App\Models\Tutorias\Tutorias_formularios;
+use App\Models\Tutorias\Tutorias_opciones;
+use App\Models\Tutorias\Tutorias_pregunta_respuestas;
+use App\Models\Tutorias\Tutorias_preguntas;
+use App\Models\Tutorias\Tutorias_respuestas;
+use App\Models\Tutorias\Tutorias_usuario;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use App\clases\PortalAlumno\Mailer;
-use App\Http\Models\Alumno;
+use App\Models\Alumno;
 use Carbon\Carbon;
 
 class TutoriasEncuestasController extends Controller
@@ -935,7 +935,7 @@ class TutoriasEncuestasController extends Controller
 	}
 
 	/**
-	* @param App\Http\Models\Baja
+	* @param App\Models\Baja
 	*/
 	public function armarMensajeEncuestaInasistenciaCovid19($formularioId, $alumnoId, $respuestas)
 	{

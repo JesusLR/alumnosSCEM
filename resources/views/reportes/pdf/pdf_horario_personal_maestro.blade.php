@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,9 +391,9 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         height: 240px;
         /** Extra personal styles **/
@@ -401,6 +401,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -90px;
         right: 0px;
@@ -410,7 +411,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -530,7 +531,7 @@
         </div>
       </div>
 
-    
+
       <br><br>
       <div class="row">
         <div class="columns medium-12">
@@ -542,10 +543,10 @@
               <th align="center" style="width: 15px; font-size: 10px;">HORA</th>
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;"> <div style="width: 100%;"> LUNES</div></th>
               <th align="center" style="width: 20px; border-left: 0px;"></th>
-            
+
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;">MARTES</th>
               <th align="center" style="width: 20px; border-left: 0px;"></th>
-            
+
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;">
                 <div style="width: 50px; left: 43px; position: relative;">MIERCOLES</div>
               </th>
@@ -580,7 +581,7 @@
               @endwhile
             </tr>
 
-            @php 
+            @php
             $i = 1;
             @endphp
             <!-- HORAS LABORES -->
@@ -669,7 +670,7 @@
               @endphp
               @endwhile
             </tr>
-            @php 
+            @php
               $i++;
             @endphp
             @endwhile
@@ -689,10 +690,10 @@
               <th align="center" style="width: 15px; font-size: 10px;">HORA</th>
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;"> <div style="width: 100%;"> LUNES</div></th>
               <th align="center" style="width: 20px; border-left: 0px; "></th>
-            
+
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;">MARTES</th>
               <th align="center" style="width: 20px; border-left: 0px; "></th>
-            
+
               <th align="right" style="width: 20px; border-right: 0px; font-size: 10px;">
                 <div style="width: 50px; left: 43px; position: relative;">MIERCOLES</div>
               </th>
@@ -727,7 +728,7 @@
               @endwhile
             </tr>
 
-            @php 
+            @php
             $i = 1;
             @endphp
             <!-- HORAS LABORES -->
@@ -767,7 +768,7 @@
                   if ($i == 7) {
                     $hrInicio = 21; $hrFinal = 22;
                     $hrInicioFinal = "21-22";
-                    
+
                   }
                 @endphp
                 {{$hrInicioFinal}}
@@ -813,7 +814,7 @@
               @endphp
               @endwhile
             </tr>
-            @php 
+            @php
               $i++;
             @endphp
             @endwhile
@@ -822,7 +823,7 @@
       </div>
 
 
-      
+
       <br><br>
       <div class="row">
         <div class="columns medium-12">
@@ -875,7 +876,7 @@
                   <td align="center" style="width: 15px;">
                     {{\Carbon\Carbon::parse($grupo->gpoFechaExamenOrdinario)->day
                     .'/'. \Carbon\Carbon::parse($grupo->gpoFechaExamenOrdinario)->formatLocalized('%b')
-                    .'/'. \Carbon\Carbon::parse($grupo->gpoFechaExamenOrdinario)->year}}  
+                    .'/'. \Carbon\Carbon::parse($grupo->gpoFechaExamenOrdinario)->year}}
                   </td>
                 </tr>
               @endif
@@ -896,7 +897,7 @@
             </div>
           </div>
         </div>
-  
+
         <div class="row" style="margin-top: -150px; margin-right: 20px;">
           <div class="columns medium-12">
             <div style="margin: 0 auto;">
@@ -904,7 +905,7 @@
                 @if ($horariosPersonalMaestro->maestro->escuela->departamento->ubicacion->ubiClave == "CME")
                   <img style="width: 150px;" src="{{base_path('resources/assets/img/merida.jpg')}}" alt="" />
                 @endif
-  
+
                 @if ($horariosPersonalMaestro->maestro->escuela->departamento->ubicacion->ubiClave == "CVA")
                   <img style="width: 150px;" src="{{base_path('resources/assets/img/valladolid.jpg')}}" alt="" />
                 @endif
@@ -917,10 +918,10 @@
         <div class="page_break"></div>
       @endif
     @endforeach
-    
+
 
     <footer id="footer">
-      
+
     </footer>
   </body>
 </html>

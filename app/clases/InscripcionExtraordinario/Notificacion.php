@@ -2,7 +2,7 @@
 namespace App\clases\InscripcionExtraordinario;
 
 use Illuminate\Support\Collection;
-use App\Http\Models\Curso;
+use App\Models\Curso;
 use App\clases\PortalAlumno\Mailer;
 use Exception;
 use DB;
@@ -81,7 +81,7 @@ class Notificacion
 	}
 
 	/**
-	* @param App\Http\Models\Collection $reprobadas
+	* @param App\Models\Collection $reprobadas
 	*/
 	public function armarMensajeReprobadasSinExtraordinario(Collection $reprobadas)
 	{

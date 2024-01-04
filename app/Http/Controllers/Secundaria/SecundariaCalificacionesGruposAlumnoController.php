@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Secundaria;
 
 use Auth;
 
-use App\Http\Models\Departamento;
+use App\Models\Departamento;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Secundaria\Secundaria_calendario_calificaciones_docentes;
-use App\Http\Models\Secundaria\Secundaria_inscritos;
+use App\Models\Curso;
+use App\Models\Secundaria\Secundaria_calendario_calificaciones_docentes;
+use App\Models\Secundaria\Secundaria_inscritos;
 use Carbon\Carbon;
 
 class SecundariaCalificacionesGruposAlumnoController extends Controller

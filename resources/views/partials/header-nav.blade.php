@@ -4,7 +4,7 @@
         <nav class="navbar-color   darken-4">
             @php
                 use App\Models\User;
-                use App\Http\Models\Curso;
+                use App\Models\Curso;
                 use Illuminate\Support\Facades\DB;
                 $curso = Curso::whereHas('alumno', function($query) {
                   $query->where('aluClave', auth()->user()->username);

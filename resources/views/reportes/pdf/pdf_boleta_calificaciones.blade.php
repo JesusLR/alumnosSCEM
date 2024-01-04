@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -484,7 +485,7 @@
         <h5 syle="margin-top:0px; margin-bottom: 10px;">PERIODO ESCOLAR:   {{$periodo}}</h5>
         </div>
       </div>
-      
+
     </header>
 
     @php
@@ -492,12 +493,12 @@
     $TotalFaltas2 = 0;
     $TotalFaltas3 = 0;
     @endphp
-   
+
     @foreach ($calif as $item)
     @php
     $primero = $item->first();
     @endphp
-    
+
     <div class="row">
       <div class="columns medium-6">
       <p style="margin-top:0px; margin-bottom: 10px;">Clave: {{$primero['aluClave']}}</p>
@@ -510,9 +511,9 @@
           <p>{{$primero['gpoSemestre']}}  {{$primero['gpoClave']}}</p>
           </div>
       </div>
-    </div>   
-  
-    
+    </div>
+
+
       <div class="row">
         <div class="columns medium-12">
           <table class="table">
@@ -526,7 +527,7 @@
               <th align="center">Calif Ordi.</th>
               <th align="center">Calif Final</th>
             </tr>
-         
+
             @if ($loop->last)
               <hr>
             @endif
@@ -540,35 +541,35 @@
               <tr>
                 <td>{{$calificacion['matClave']}}</td>
                 <td style="width: 200px;">{{$calificacion['matNombre']}}</td>
-                <td align="center"> 
+                <td align="center">
                   @if ($calificacion['calificacion']['inscCalificacionParcial1'] <= 59)
                     <strong>{{$calificacion['calificacion']['inscCalificacionParcial1']}}</strong>
                   @else
-                    {{$calificacion['calificacion']['inscCalificacionParcial1']}}@endif  - 
-                  @if ($calificacion['calificacion']['inscFaltasParcial1'] == 0) 0 
-                  @else 
+                    {{$calificacion['calificacion']['inscCalificacionParcial1']}}@endif  -
+                  @if ($calificacion['calificacion']['inscFaltasParcial1'] == 0) 0
+                  @else
                     {{$calificacion['calificacion']['inscFaltasParcial1']}}
-                  @endif 
+                  @endif
                 </td>
                 <td align="center">
                   @if ($calificacion['calificacion']['inscCalificacionParcial2'] <= 59)
                   <strong>{{$calificacion['calificacion']['inscCalificacionParcial2']}}</strong>
                   @else
-                    {{$calificacion['calificacion']['inscCalificacionParcial2']}}@endif  -  
-                  @if ($calificacion['calificacion']['inscFaltasParcial2'] == 0) 0 
-                  @else 
+                    {{$calificacion['calificacion']['inscCalificacionParcial2']}}@endif  -
+                  @if ($calificacion['calificacion']['inscFaltasParcial2'] == 0) 0
+                  @else
                   {{$calificacion['calificacion']['inscFaltasParcial2']}}
-                  @endif 
+                  @endif
                 </td>
                 <td align="center">
                   @if ($calificacion['calificacion']['inscCalificacionParcial3'] <= 59)
                     <strong>{{$calificacion['calificacion']['inscCalificacionParcial3']}}</strong>
                   @else
-                    {{$calificacion['calificacion']['inscCalificacionParcial3']}}@endif  -  
-                  @if ($calificacion['calificacion']['inscFaltasParcial3'] == 0) 0 
-                  @else 
+                    {{$calificacion['calificacion']['inscCalificacionParcial3']}}@endif  -
+                  @if ($calificacion['calificacion']['inscFaltasParcial3'] == 0) 0
+                  @else
                     {{$calificacion['calificacion']['inscFaltasParcial3']}}
-                  @endif 
+                  @endif
                 </td>
                 <td align="center">
                   @if ($calificacion['calificacion']['inscPromedioParciales'] <= 59)
@@ -605,7 +606,7 @@
                 <hr>
               @endif
             @endforeach
-                
+
             <tr>
               <td></td>
               <td align="right" style="width: 200px;">Total de faltas del parcial:</td>
@@ -643,7 +644,7 @@
                   <td align="center" style="width: 200px;">{{$historico['matHis']['matNombre']}}</td>
                   <td align="center">
                   @if ($historico['historico']['histCalificacion'] <= 59)
-                  
+
 
                   @php
                     $califOrdinario = $historico['historico']['histCalificacion'];
@@ -698,7 +699,7 @@
                       }
                     @endphp
                     <strong>{{$extDos}}</strong>
-                  
+
                   @else
                   {{$historico['historicoEX2']['histCalificacion']}}@endif
                   </td>
@@ -720,7 +721,7 @@
                     <strong>{{$extTres}}</strong>
 
                   @else
-                  {{$historico['historicoEX3']['histCalificacion']}}@endif  
+                  {{$historico['historicoEX3']['histCalificacion']}}@endif
                   </td>
                   <td align="center">
                   @if ($historico['historicoEP1']['histCalificacion'] <= 59)
@@ -739,26 +740,26 @@
                     @endphp
                     <strong>{{$califEspecial}}</strong>
                   @else
-                  {{$historico['historicoEP1']['histCalificacion']}}@endif  
+                  {{$historico['historicoEP1']['histCalificacion']}}@endif
                   </td>
                   <td align="center">
                     @if ($historico['historicoEX3'] != NULL)
-                    {{$historico['historicoEX3']['histFechaExamen']}}  
+                    {{$historico['historicoEX3']['histFechaExamen']}}
                     @elseif($historico['historicoEX2'] != NULL)
-                    {{$historico['historicoEX2']['histFechaExamen']}}  
+                    {{$historico['historicoEX2']['histFechaExamen']}}
                     @elseif($historico['historicoEX1'] != NULL)
-                    {{$historico['historicoEX1']['histFechaExamen']}}  
+                    {{$historico['historicoEX1']['histFechaExamen']}}
                     @elseif($historico['historico'] != NULL)
-                    {{$historico['historico']['histFechaExamen']}}  
+                    {{$historico['historico']['histFechaExamen']}}
                     @endif
                   </td>
                 </tr>
               @endforeach
             </table>
           </div>
-        </div> 
+        </div>
       @endforeach
-       
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

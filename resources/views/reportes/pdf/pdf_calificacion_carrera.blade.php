@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -507,7 +508,7 @@
         <p align="justify">SEMESTRE {{$firstMateria["cgtGradoSemestre"]}}: {{$cicloSemestre}}</p>
         @foreach ($materias as $materia)
           <div style="padding:0 0 0 30px;">
-            @if ($materia['histCalificacion'] >= $depCalMinAprob) 
+            @if ($materia['histCalificacion'] >= $depCalMinAprob)
               <span style="float:right; font-weight:normal;">{{$materia['histCalificacion']}}</span>
             @else
               <span style="float:right;">{{$materia['histCalificacion']}}</span>
@@ -516,12 +517,12 @@
           </div>
           @php
             if ($materia['histCalificacion'] == 'Apr' || $materia['histCalificacion'] == 'No Apr') {
-              
+
             }elseif ($materia['histCalificacion'] == 'Des') {
               $contarMaterias++;
               $contarMateriasTotales++;
             }elseif ($materia['histCalificacion'] == 'S/D' || $materia['histCalificacion'] == 'Npa') {
-            
+
             }else {
               $contarMaterias++;
               $contarCalificacion+=$materia['histCalificacion'];
@@ -559,7 +560,7 @@
       <p align="justify">Y para los fines que le sean convenientes, se expide la presente constancia
         en la ciudad de {{$ubicacionCiudad}} {{$ubicacionEstado}}, a los {{$fechaDeHoy}}.
       </p>
-      
+
           <br>
       <p align="center">ATENTAMENTE</p>
       <br><br>

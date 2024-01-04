@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Portal_configuracion;
+use App\Models\Curso;
+use App\Models\Portal_configuracion;
 use Closure;
 use Illuminate\Support\Facades\DB;
 

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Alumno;
+use App\Models\Pago;
+use App\Models\Alumno;
 
 use Illuminate\Http\Request;
 

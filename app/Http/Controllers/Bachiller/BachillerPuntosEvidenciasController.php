@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_inscritos_evidencias;
-use App\Http\Models\Departamento;
+use App\Models\Bachiller\Bachiller_inscritos_evidencias;
+use App\Models\Departamento;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 

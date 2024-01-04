@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Secundaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Secundaria\Secundaria_inscritos;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Secundaria\Secundaria_inscritos;
 use Yajra\DataTables\Facades\DataTables;
 use Auth;
 

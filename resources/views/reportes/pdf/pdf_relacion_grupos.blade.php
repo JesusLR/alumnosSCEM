@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -110px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -495,13 +496,13 @@
         </div>
       </div>
     </header>
-   
+
 
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
 
-    @php 
+    @php
       $maternal     = $programas->where("programa.programa.escuela.departamento.depClave", "MAT")->first();
       $preprimaria  = $programas->where("programa.programa.escuela.departamento.depClave", "PRE")->first();
       $primaria     = $programas->where("programa.programa.escuela.departamento.depClave", "PRI")->first();
@@ -517,7 +518,7 @@
       });
 
 
-  
+
       $posgrado = $programas->where("programa.programa.escuela.departamento.depClave", "POS")->filter(function ($item, $key) {
         $res = ($item->cantInscritos + $item->cantPreinscritos
         + $item->cantCond + $item->cantCondDos + $item->total
@@ -526,13 +527,13 @@
         return $res > 0;
       });
 
-      // $totalBasicoCantInscritos = 
+      // $totalBasicoCantInscritos =
       //   $maternal->cantInscritos + $preprimaria->cantInscritos +
       //     $primaria->cantInscritos + $secundaria->cantInscritos + $bachillerato->cantInscritos
 
       $totalBasicoCantInscritos = 0;
 
-      // $totalBasicoCantPreinscritos = 
+      // $totalBasicoCantPreinscritos =
       //   $maternal->cantPreinscritos + $preprimaria->cantPreinscritos +
       //   $primaria->cantPreinscritos + $secundaria->cantPreinscritos + $bachillerato->cantPreinscritos;
       $totalBasicoCantPreinscritos = 0;
@@ -576,8 +577,8 @@
       $totalPosCantGruposCgt    = $posgrado->sum("cantGruposCgt");
       $totalPosAluInscritosEntreGrupo = (int) round($totalPosCantInscritos / $totalPosCantGruposCgt);
       $totalPosHorasDocentes    = $posgrado->sum("horasDocentes");
-      
-      
+
+
       $totalSupCantInscritos    = $superior->sum("cantInscritos");
       $totalSupCantPreinscritos = $superior->sum("cantPreinscritos");
       $totalSupCantCond         = $superior->sum("cantCond");
@@ -680,7 +681,7 @@
         </table>
       </div>
     </div>-->
-    
+
     <div class="row" style="margin-top: 20px;">
       <div class="columns medium-12">
         <table class="table">

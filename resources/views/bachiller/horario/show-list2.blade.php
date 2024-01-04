@@ -7,7 +7,7 @@
 @endsection
 
 @section('head')
-    {!! HTML::style(asset('/public/vendors/data-tables/css/jquery.dataTables.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+    {!! HTML::style(asset('/vendors/data-tables/css/jquery.dataTables.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
 @endsection
 
 @section('breadcrumbs')
@@ -25,7 +25,7 @@
     <br>
     @php
         $contador = 1;
-        use App\Http\Models\Bachiller\Bachiller_horarios;
+        use App\Models\Bachiller\Bachiller_horarios;
     @endphp
     <style>
   
@@ -304,7 +304,7 @@
 
 {{--  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>  --}}
-{!! HTML::script(asset('/public/bachiller/dataTables.js'), array('type' => 'text/javascript')) !!}
+{!! HTML::script(asset('/bachiller/dataTables.js'), array('type' => 'text/javascript')) !!}
 
 
 

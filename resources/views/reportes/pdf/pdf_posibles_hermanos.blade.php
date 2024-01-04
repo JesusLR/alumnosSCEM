@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -485,7 +486,7 @@
         <div class="columns medium-6">
           <h5 style="margin-top:0px; margin-bottom: 10px;">ESCUELA MODELO, S.C.P.</h5>
           <h5 style="margin-top:0px; margin-bottom: 10px;">RELACIÓN DE POSIBLES HERMANOS</h5>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -526,7 +527,7 @@
                 <th align="center" style="width: 50px;">Fecha Baja</th>
               </tr>
             </thead>
-            @php 
+            @php
               use App\Http\Helpers\Utils;
               $num = 1;
             @endphp
@@ -545,7 +546,7 @@
                 </td>
                 <td align="center" style="width: 30px;">
                 @if (isset($alumno["porcentajeBeca"]))
-                {{$alumno["tipoBeca"]}} {{$alumno["porcentajeBeca"]}}%    
+                {{$alumno["tipoBeca"]}} {{$alumno["porcentajeBeca"]}}%
                 @endif
                 </td>
                 <td align="center" style="width: 30px;">
@@ -555,17 +556,17 @@
                 </td>
               </tr>
               @foreach ($alumno['hermanos'] as $item)
-                @php 
+                @php
                   $hermano = $item[0];
                   $pago = $item[1];
                 @endphp
-             
+
                 <tr>
                   <td align="center" style="width: 10px;">{{$num++}}</td>
                   <td align="center" style="width: 10px;">{{$hermano->alumno->aluClave}}</td>
                   <td align="left" style="width: 30px;">
-                    {{$hermano->alumno->persona->perApellido1}} 
-                    {{$hermano->alumno->persona->perApellido2}} 
+                    {{$hermano->alumno->persona->perApellido1}}
+                    {{$hermano->alumno->persona->perApellido2}}
                     {{$hermano->alumno->persona->perNombre}}
                   </td>
                   <td align="center" style="width: 30px;">{{$hermano->cgt->plan->programa->progClave}}</td>
@@ -579,7 +580,7 @@
                   </td>
                   <td align="center" style="width: 30px;">
                     @if (isset($hermano->curPorcentajeBeca))
-                      {{$hermano->curTipoBeca}} {{$hermano->curPorcentajeBeca}}%    
+                      {{$hermano->curTipoBeca}} {{$hermano->curPorcentajeBeca}}%
                     @endif
                   </td>
                   <td align="center" style="width: 30px;">
@@ -588,7 +589,7 @@
                     @endif
                   </td>
                 </tr>
-                
+
               @endforeach
               <tr>
                   <td colspan="10">&nbsp;</td>
@@ -597,7 +598,7 @@
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

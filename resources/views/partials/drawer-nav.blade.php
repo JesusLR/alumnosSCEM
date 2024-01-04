@@ -1,15 +1,15 @@
 <aside id="left-sidebar-nav" class="nav-expanded nav-lock nav-collapsible navbar-fixed">
-    <div class="brand-sidebar">        
+    <div class="brand-sidebar">
         <center>
-            <img src="{{ asset('public/images/logo-blanco.png') }}" width="25%" height="25%">
+            <img src="{{ asset('/images/logo-blanco.png') }}" width="25%" height="25%">
             <a href="javascript:void(0);" style="color:white; float:left;" class="sidenav-trigger-hide hide-on-small-only-new">
                 <i class="material-icons waves-effect waves-light" style="font-size:40px; margin: 8px 0 0 20px; position: fixed;">menu</i>
             </a>
         </center>
     </div>
     @php
-        use App\Http\Models\Alumno;
-        use App\Http\Models\Curso;
+        use App\Models\Alumno;
+        use App\Models\Curso;
 
         /*
         $curso = Curso::whereHas('alumno', function($query) {
@@ -17,7 +17,7 @@
             })->latest('curFechaRegistro')->first();
         */
 
-         $results = DB::select(DB::raw("SELECT
+         $results = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           alumnos.aluEstado,
@@ -71,7 +71,7 @@
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-        );"));
+        );");
         $cursos = collect($results)->first();
         $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                  ->where("id", $cursos->cursos_id)->first();
@@ -115,7 +115,7 @@
 
                         $aluClave = Auth::user()->username;
 
-                        $results = DB::select(DB::raw("SELECT
+                        $results = DB::select("SELECT
                               cursos.id as curso_id,
                               cursos.curPlanPago,
                               cursos.curEstado,
@@ -154,7 +154,7 @@
                                 departamentos
                               WHERE
                                 depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-                            );"));
+                            );");
 
 
                         //ES REGULAR O CONDICIONADO
@@ -502,7 +502,7 @@
 
                         @endif
                     @endif
-                    
+
                     @if($OPCIONES_ACADEMICAS_BAC)
                                 @if ($curso->curEstado == "R"
                                     && ($ubicacion && $ubicacion->ubiClave != 'CCH') )
@@ -527,7 +527,7 @@
                                             </li>
                                         @endif
                                     @endif
-                                    
+
 
                                     {{--  Mostrar si es true   --}}
                                     @if ($ubicacion->ubiClave == 'CME')
@@ -549,8 +549,8 @@
                                             </li>
                                         @endif
                                     @endif
-                                    
-                                    
+
+
 
                                     <li class="bold">
                                         <a href="{{ url('bachiller_adeudadas') }}">
@@ -566,7 +566,7 @@
                                         </a>
                                     </li> --}}
 
-                                    
+
                                                             <li class="bold">
                                                                     <a class="collapsible-header waves-effect waves-cyan">
                                                                         <i class="material-icons">dashboard</i>
@@ -608,7 +608,7 @@
 
                                                                                 @endif
                                                                             @endif
-                                                                            
+
                                                                             {{--
                                                                             <li>
                                                                                 <a href="{{ url('bachiller_notificar_pago') }}">
@@ -623,7 +623,7 @@
                                             </div>
                                         </li>
 
-                                
+
                                 @endif
                     @endif
                 @endif

@@ -16,12 +16,12 @@ use Validator;
 use Debugbar;
 
 use App\Models\User;
-use App\Http\Models\Empleado;
+use App\Models\Empleado;
 use App\Models\Modules;
 use App\Models\Permission;
 use App\Models\Permission_module_user;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Permiso_programa_user;
+use App\Models\Ubicacion;
+use App\Models\Permiso_programa_user;
 
 class UserController extends Controller
 {

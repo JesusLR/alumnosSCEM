@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Bachiller;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Pago;
-use App\Http\Models\Alumno;
-use App\Http\Models\Departamento;
-use App\Http\Models\Periodo;
+use App\Models\Pago;
+use App\Models\Alumno;
+use App\Models\Departamento;
+use App\Models\Periodo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

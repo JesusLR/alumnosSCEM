@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -480,9 +481,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-    
+
     <div class="row">
         <div class="columns medium-6">
           <p >UNIVERSIDAD MODELO</p>
@@ -514,19 +515,19 @@
               <th align="center" style="font-weight: 400;width:50px;">Fec.Rep4</th>
               <th align="center" style="font-weight: 400;width:50px;">Fec.Lib</th>
             </tr>
-            
-           </table> 
+
+           </table>
         </div>
       </div>
   </header>
   <body>
-    
+
     <div class="row">
         <div class="columns medium-12">
-         <table class="table"> 
+         <table class="table">
           @php
             //contador de filas, columna No.
-            $rowNum = 1; 
+            $rowNum = 1;
             //agrupar para imprimir, por carrera.
             $carreras = $alumnos->groupBy('progClave');
           @endphp
@@ -598,5 +599,5 @@
         <span class="page-number"></span>
       </div>
     </footer>
-    
+
 </html>

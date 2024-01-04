@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Primaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Primaria\Primaria_asistencia;
-use App\Http\Models\Primaria\Primaria_inscrito;
-use App\Http\Models\primaria\primaria_inscritos;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Primaria\Primaria_asistencia;
+use App\Models\Primaria\Primaria_inscrito;
+use App\Models\primaria\primaria_inscritos;
 use Yajra\DataTables\Facades\DataTables;
 use Auth;
 use Carbon\Carbon;

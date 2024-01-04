@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use DB;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Alumno;
-use App\Http\Models\CalendarioExamen;
-use App\Http\Models\Curso;
+use App\Models\Pago;
+use App\Models\Alumno;
+use App\Models\CalendarioExamen;
+use App\Models\Curso;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;

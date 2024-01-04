@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_calendarioexamen;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
+use App\Models\Bachiller\Bachiller_calendarioexamen;
+use App\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Curso;
+use App\Models\Departamento;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

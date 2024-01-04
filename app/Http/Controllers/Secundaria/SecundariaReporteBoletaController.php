@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Secundaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Secundaria\Secundaria_porcentajes;
+use App\Models\Curso;
+use App\Models\Secundaria\Secundaria_porcentajes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;

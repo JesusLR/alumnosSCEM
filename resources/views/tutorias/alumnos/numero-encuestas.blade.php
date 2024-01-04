@@ -16,8 +16,8 @@ Lista de encuetas
 
 @section('content')
     @php
-        use App\Http\Models\Alumno;
-        use App\Http\Models\Curso;
+        use App\Models\Alumno;
+        use App\Models\Curso;
 
          $results = DB::select(DB::raw("SELECT
           aluClave AS 'clave_pago',

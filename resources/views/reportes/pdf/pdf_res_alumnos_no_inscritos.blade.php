@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -80px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -488,7 +489,7 @@
           <p style="margin-top:0px; margin-bottom: 10px;">Niv/Carr: {{$programa->progClave}} {{$programa->progNombre}}</p>
           <p style="margin-top:0px; margin-bottom: 10px;">Ubicación: {{$ubicacion->ubiClave}} {{$ubicacion->ubiNombre}}</p>
           <p style="margin-top:0px; margin-bottom: 10px;">Período: {{$periodoCurso}}</p>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -498,8 +499,8 @@
           </div>
         </div>
       </div>
-  
-      
+
+
     </header>
 
       <div class="row">
@@ -561,7 +562,7 @@
               @case(10)
               {{$primerSemestre = 'Décimo'}}
               {{$segundoSemestre = 'Décimo primero'}}
-              @break                    
+              @break
               @endswitch
             @else
               @switch($alumno['semestre'])
@@ -604,7 +605,7 @@
               @case(10)
               {{$primerSemestre = 'Décimo'}}
               {{$segundoSemestre = 'Décimo segundo'}}
-              @break                    
+              @break
               @endswitch
             @endif
             <tbody>
@@ -618,7 +619,7 @@
               <td>{{$item['nombreAlumno']}}</td>
               <td align="center">{{$item['Estado']}}</td>
               <td align="center">___________________________________</td>
-            </tr>  
+            </tr>
             @endforeach
             @if (!$loop->last)
             <tr>
@@ -630,7 +631,7 @@
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

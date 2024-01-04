@@ -31,7 +31,7 @@
 
                         {{--  se valida si trae registro  --}}
                         @if ($userAlumnoPlanPago != "")
-                            
+
 
                             @if ($userAlumnoPlanPago->ubicacion != "CME" || $userAlumnoPlanPago->depClave == "POS")
                                 @if ($motrar_libreta == "I")
@@ -39,7 +39,7 @@
                                     para el ciclo escolar 2023-2024.
                                 </p>
                                 <hr>
-                                @endif                              
+                                @endif
                             @else
                                 @if ($userAlumnoPlanPago->ubicacion == "CME" && $userAlumnoPlanPago->puedeCambiardePlan == "NO" && $motrar_libreta == "I")
                                     <p>Estimado alumno(a): A partir del 4 de Septiembre de 2023, estará a tu disposición la descarga de la libreta de pago de colegiaturas e inscripción
@@ -75,7 +75,7 @@
                                             <p style="margin-left: 15px;">1 - Pago de contado del monto total de la inscripción, a pagarse en los primeros 20 días del mes de Enero de 2024 (sin prorrateo).</p>
                                             <p style="margin-left: 15px;">2 - Pago prorrateado dividido en 10 parcialidades y cada parcialidad se suma al monto total de la colegiatura mensual.</p>
                                             <p>A continuación te mostramos un ejemplo de cada uno de los planes de pago.</p>
-                                            <img src="{{url('public/images/ej_prerrorateo.jpg')}}" alt="">
+                                            <img src="{{url('/images/ej_prerrorateo.jpg')}}" alt="">
                                             <p style="color:black;font-weight: bold;">¿Desea cambiar de plan de pago?</p>
                                         </div>
                                     </div>
@@ -101,10 +101,10 @@
 
                             @endif
 
-                            
+
                         @endif
 
-                          
+
 
                       @endif
 
@@ -167,10 +167,10 @@
 
 
                       @else
-                      
+
                        {{--  COMIENZA DEFINE_PRORRATEO_LIBRETA_PAGO CUANDO ESTA ACTIVO PERO LA LIBRETA DE PAGO ESTA ACTIVO Y EL ALUMNO YA SELECCIONO SU MODO DE PAGO  --}}
                         @if ($filtroTarjetaPago->depClave == "SUP" || $filtroTarjetaPago->depClave == "POS")
-                            
+
                             {{--  para SUP   --}}
                             @if ($motrar_libreta == "A" && $userAlumnoPlanPago->puedeCambiardePlan == "NO" && $filtroTarjetaPago->ubicacion == "CME" && $filtroTarjetaPago->depClave == "SUP")
                                 <p>
@@ -187,7 +187,7 @@
                                     @if ($filtroTarjetaPago->curPlanPago == "O")
                                         <span style="font-weight: bold; color:blue;"> Colegiatura Once Meses.</span>
                                     @endif
-                                </p>                                                           
+                                </p>
                             @endif
 
                             {{--  para POS   --}}
@@ -206,7 +206,7 @@
                                     @if ($filtroTarjetaPago->curPlanPago == "O")
                                         <span style="font-weight: bold; color:blue;"> Colegiatura Once Meses.</span>
                                     @endif
-                                </p>                                                           
+                                </p>
                             @endif
 
                             {{--  PARA CVA   --}}
@@ -246,7 +246,7 @@
                                     @endif
                                 </p>
                             @endif
-                           
+
 
                             @if ($motrar_libreta == "A" && $filtroTarjetaPago->ubicacion == "CME")
                                 <br><p><i>Cualquier duda ó aclaración, favor de comunicarte a la Coordinación Administrativa de la Universidad Modelo.</i></p>
@@ -324,7 +324,7 @@
 
                                   @else
 
-                                      {{-- PARA ALUMNOS SUP O POS DEL PERIODO 1 QUE ESTAN REGULARES EN PERIODO 3 --}}                                          
+                                      {{-- PARA ALUMNOS SUP O POS DEL PERIODO 1 QUE ESTAN REGULARES EN PERIODO 3 --}}
 
                                           @if ($filtroTarjetaPago->ubicacion == "CME" && $motrar_libreta == "A")
                                           <p>
@@ -459,12 +459,12 @@
                       </div>
                     </div>
 
-                
+
                 @else
                     {{--  validamos si esta activo DEFINE_PRORRATEO_LIBRETA_PAGO de ser así comprobamos si esta activo la libreta de pago y si el alumno ya eligio su forma de pago  --}}
-                    
+
                     @if ($filtroTarjetaPago->ubicacion == "CME")
-                        
+
                         {{--  para SUP   --}}
                         @if ($motrar_libreta == "A" && $userAlumnoPlanPago->puedeCambiardePlan == "NO" && $userAlumnoPlanPago->depClave == "SUP")
                             <div class="row">
@@ -568,11 +568,11 @@
                                 </div>
                             </div>
                         @endif
-                        
+
                     @endif
-                    
+
                     {{--  PARA CVA   --}}
-                    @if ($filtroTarjetaPago->ubicacion == "CVA" && $motrar_libreta == "A")                    
+                    @if ($filtroTarjetaPago->ubicacion == "CVA" && $motrar_libreta == "A")
                         <div class="row">
                             <div class="col s12 m12 l12" style="margin-bottom: 20px;">
                                 <hr>
@@ -624,7 +624,7 @@
                     @endif
 
                     {{--  PARA CCH   --}}
-                    @if ($filtroTarjetaPago->ubicacion == "CCH" && $motrar_libreta == "A")                    
+                    @if ($filtroTarjetaPago->ubicacion == "CCH" && $motrar_libreta == "A")
                         <div class="row">
                             <div class="col s12 m12 l12" style="margin-bottom: 20px;">
                                 <hr>
@@ -674,7 +674,7 @@
                             </div>
                         </div>
                     @endif
-                    
+
                 @endif
 
             @endif

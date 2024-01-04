@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -512,7 +513,7 @@
           @if($grupo)
             <p>Carrera: {{$grupo["plan"]["programa"]["progClave"]}} ({{$grupo["plan"]["planClave"]}}) {{strtoupper($grupo["plan"]["programa"]["progNombre"])}}</p>
             <p>Ubicac.: {{$grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"] ?
-                $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }} 
+                $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }}
               {{$grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"] ?
                 $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"]: ""}}
             </p>
@@ -525,7 +526,7 @@
 
       </div>
     </header>
-   
+
     @foreach ($grupos as $grupo)
       <div class="row">
         <div class="columns medium-6">
@@ -580,7 +581,7 @@
                   @endif
                 </td>
 
-                <!-- Prom. Calif. Parc. --> 
+                <!-- Prom. Calif. Parc. -->
                 <td style="" align="center">
                   @if ($inscrito->inscCalificacionParcial1 == null &&
                     $inscrito->inscCalificacionParcial2 == null &&
@@ -591,7 +592,7 @@
                   @endif
                 </td>
 
-                <!-- Prom. Pond. --> 
+                <!-- Prom. Pond. -->
                 <td style="" align="center">
                   @if ($inscrito->inscCalificacionParcial1 != null &&
                     $inscrito->inscCalificacionParcial2 != null &&
@@ -638,7 +639,7 @@
                         NPE
                       @endif
                     @endif
-                    
+
                     @if ($inscrito->grupo->materia->matTipoAcreditacion == "N")
                       @if($inscrito->incsCalificacionFinal == -1)
                         NPE
@@ -646,7 +647,7 @@
                         {{$inscrito->incsCalificacionFinal}}
                       @endif
                     @endif
-                    
+
                   @endif
                 </td>
 
@@ -662,7 +663,7 @@
         </div>
       </div>
 
-      
+
       <div style="position:absolute; bottom: 10;">
         <div class="row">
           <div class="columns medium-6">
@@ -687,7 +688,7 @@
           </div>
         </div>
       </div>
-      
+
 
       @if ($loop->first)
         <footer id="footer">
