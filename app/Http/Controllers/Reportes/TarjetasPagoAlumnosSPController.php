@@ -165,7 +165,7 @@ class TarjetasPagoAlumnosSPController extends Controller
 
             //dd($fechaActual, $periodoPapasDesesperados->perFechaFinal, $fechaActual <= $periodoPapasDesesperados->perFechaFinal);
 
-            $cursos = DB::select(DB::raw("SELECT
+            $cursos = DB::select("SELECT
               aluClave AS 'clave_pago',
               alumnos.id AS 'alumnos_id',
               alumnos.aluEstado,
@@ -213,7 +213,7 @@ class TarjetasPagoAlumnosSPController extends Controller
               AND periodos.perAnioPago = $request->perAnioPago
               AND periodos.id IN (
                     $id_periodoSiguiente
-            );"));
+            );");
 
             //dd($cursoSiguiente );
 

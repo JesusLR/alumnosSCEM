@@ -351,16 +351,16 @@
       font-size: 10px;
       margin-top: 40px;
       /* ALTURA HEADER */
-      margin-left: 5px;
-      margin-right: 5px;
+      margin-left: -20px;
+      margin-right: -20px;
     }
 
     .row {
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px;
+      margin-right: -30px; */
     }
 
     .row::after {
@@ -499,6 +499,7 @@
 
     header {
       position: fixed;
+      left: 0px;
       top: -50px;
       right: 0px;
       height: 3px;
@@ -614,10 +615,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -641,24 +642,24 @@
           <div class="row">
             <div class="columns medium-4">
               <p><b>Clave: {{$item->aluClave}} </b></p>
-              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>         
+              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>
               @php
                 $NombreAlumno = $item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre;
-              @endphp   
+              @endphp
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: center">
               <p><b>Clav.Plan: {{$item->planClave}} </b></p>
               <p><b>Ubicación: {{$item->ubiClave}} </b></p>
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: right">
               <p><b>Fecha: {{$fechaActual}} </b></p>
-              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}} 
+              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}}
                 @if($item->curEstado == "P") (Pre) @endif
                 @if($item->curEstado == "C" || $item->curEstado == "A") (Con) @endif
               </b></p>
@@ -683,12 +684,12 @@
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor2</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor3</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Ult. Examen</th>
-                  </tr>          
+                  </tr>
                 </thead>
                 <tbody>
                   @php
 
-                              
+
                   $ubiClave = $item->ubiClave;
 
                   $aluClave = $item->aluClave;
@@ -700,13 +701,13 @@
                     $alumnos_id = [];
                     $plan_id = [];
                     foreach ($buscar_alumno2 as $key => $mateRepro){
-                     
+
                       $materias_id[] = $mateRepro->bachiller_materia_id;
                       $alumnos_id[] = $mateRepro->alumno_id;
                       $plan_id[] = $mateRepro->plan_id;
                     }
-  
-  
+
+
                     $bachiller_materia_ids = trim(json_encode($materias_id), '[]');
                     $bachiller_alumno = json_encode($alumnos_id[0]);
                     $plan_alumno = json_encode($plan_id[0]);
@@ -776,7 +777,7 @@
                     $buscar_alumno3 = collect($matNoaprobadas);
                     $buscar_alumno4 = $buscar_alumno3->groupBy('bachiller_materia_id');
                   }
-                 
+
                   @endphp
 
                   @if (count($buscar_alumno2) > 0)
@@ -792,7 +793,7 @@
                           <td align="center">{{$item->extra3}}</td>
                           <td align="center">{{Utils::fecha_string($item->ultimoexa, 'mesCorto')}}</td>
                         </tr>
-                        @endif                        
+                        @endif
                     @endforeach
                     @php
                             $vueltas = 1;
@@ -807,18 +808,18 @@
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                   </tr>
-                  
-                                  
-                  @endforelse   
+
+
+                  @endforelse
                   @php
                   if(count($buscar_alumno2) > 0){
                     $materias_id = [];
                     $alumnos_id = [];
                     $plan_id = [];
                   }
-                  @endphp     
+                  @endphp
                   @endif
-                    
+
                 </tbody>
               </table>
             </div>
@@ -833,7 +834,7 @@
               <p>Alumno: {{$NombreAlumno}}</p>
             </div>
             <div class="columns medium-6">
-              
+
             </div>
             <div class="columns medium-6" style="text-align: right;">
               <p>Fecha: {{$fechaBoleta}}</p>
@@ -841,13 +842,13 @@
             </div>
           </div>
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
         $fechaBoleta = "";
         $gradoGrupo = "";
-    @endphp    
+    @endphp
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif
