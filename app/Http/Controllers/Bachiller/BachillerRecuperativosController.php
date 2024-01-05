@@ -102,7 +102,7 @@ class BachillerRecuperativosController extends Controller
     {
         $claveAlumno = (Auth::user()->username);
 
-        $results = DB::select(DB::raw("SELECT
+        $results = DB::select("SELECT
         aluClave AS 'clave_pago',
         alumnos.id AS 'alumnos_id',
         alumnos.aluEstado,
@@ -156,7 +156,7 @@ class BachillerRecuperativosController extends Controller
             departamentos
         WHERE
             depClave IN ('BAC')
-        );"));
+        );");
         $result = collect($results)->first();
 
 
@@ -216,7 +216,7 @@ class BachillerRecuperativosController extends Controller
                                 <i class="material-icons">description</i>
                             </a>';
                         } else {
-    
+
                             if($query->extAlumnosInscritos < $query->frMaximoRecursamiento){
                                 $btnGenraReciboPdf = '<form id="generar_solicitud_' . $query->extraordinario_id . '" action="api/bachiller_recuperativos/solicitar/' . $query->extraordinario_id.'/'.$result->periodo_id.'/'.$query->bachiller_materia_id.'" method="POST" target="_blank" style="display: inline;">
                                     <input type="hidden" name="_token" value="' . csrf_token() . '">
@@ -228,20 +228,20 @@ class BachillerRecuperativosController extends Controller
                             }else{
                                 $btnGenraReciboPdf = '<div title="No hay cupo disponible"><i style="color: red" class="material-icons">close</i></div>';
                             }
-    
-                            
+
+
                         }
-    
-                        
-    
+
+
+
                     }else{
-    
+
                         if($alumnoYaInscrito->isNotEmpty()) {
                             $btnGenraReciboPdf = '<a href="api/bachiller_recuperativos/generar/' . $query->extraordinario_id . '" class="button button--icon js-button js-ripple-effect" title="Generar">
                                 <i class="material-icons">description</i>
                             </a>';
                         } else {
-    
+
                             if($query->extAlumnosInscritos < $query->frMaximoAcomp){
                                 $btnGenraReciboPdf = '<form id="generar_solicitud_' . $query->extraordinario_id . '" action="api/bachiller_recuperativos/solicitar/' . $query->extraordinario_id.'/'.$result->periodo_id.'/'.$query->bachiller_materia_id.'" method="POST" target="_blank" style="display: inline;">
                                 <input type="hidden" name="_token" value="' . csrf_token() . '">
@@ -253,22 +253,22 @@ class BachillerRecuperativosController extends Controller
                             }else{
                                 $btnGenraReciboPdf = '<div title="No hay cupo disponible"><i style="color: red" class="material-icons">close</i></div>';
                             }
-                            
+
                         }
-                        
-                        
+
+
                     }
-                    
-                    
-    
+
+
+
                     // return '<a href="bachiller_recuperativos/' . $query->extraordinario_id . '" class="button button--icon js-button js-ripple-effect" title="Ver">
                     //     <i class="material-icons">visibility</i>
                     //  </a>'.$btnGenraReciboPdf;
-    
+
                     return $btnGenraReciboPdf;
                 }
 
-                
+
             })
         ->make(true);
     }
@@ -1995,7 +1995,7 @@ class BachillerRecuperativosController extends Controller
 
         $alumno = Alumno::where('aluClave', Auth::user()->username)->first();
         $alumno_id = $alumno->id;
-        $results = DB::select(DB::raw("SELECT
+        $results = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           alumnos.aluEstado,
@@ -2049,7 +2049,7 @@ class BachillerRecuperativosController extends Controller
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-        );"));
+        );");
         $cursos = collect($results)->first();
         $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                  ->where("id", $cursos->cursos_id)->first();
@@ -2077,7 +2077,7 @@ class BachillerRecuperativosController extends Controller
                         ->where('bachiller_extraordinarios.periodo_id', '=', $periodo_id)
         				// ->where('extraordinario_id', '=', $extraordinario_id)
                         ->get();
-                        
+
         if($alumnoYaInscrito->isNotEmpty()) {
             alert()->warning('No se puede procesar la Solicitud', 'Ya se encuentra inscrito a este recuperativo.')->showConfirmButton();
             return back()->withInput();
@@ -2098,7 +2098,7 @@ class BachillerRecuperativosController extends Controller
         $totalMatCreditos += $request->matCreditos;
 
         // return $totalMatCreditos;
-        
+
         if ($totalMatCreditos > 15) {
             alert()->warning('No se puede procesar la Solicitud', 'Ya has alcanzado el máximo de créditos.')->showConfirmButton();
             return back()->withInput();
@@ -2126,13 +2126,13 @@ class BachillerRecuperativosController extends Controller
                 $inscritoExt->iexFolioHistorico = NULL;
                 $inscritoExt->usuario_at = 1;
                 $inscritoExt->save();
-    
+
                 $extra = $inscritoExt->bachiller_extraordinario;
                 $extraUpdated = $this->updateNumInscritosExtra($extra);
-    
+
                 $extPago = $inscritoExt->bachiller_extraordinario->extPago;
                 $pagoLetras = NumeroALetras::convert($extPago,'PESOS',true);
-    
+
                 if($ubicacion_id == 1 || $ubicacion_id == 2 || $ubicacion_id == 4){
                     //Yucatán
                     $inscrito = Bachiller_inscritos::with('curso','bachiller_grupo')
@@ -2143,7 +2143,7 @@ class BachillerRecuperativosController extends Controller
                         $query->where('bachiller_materia_id',$inscritoExt->bachiller_extraordinario->materia_id);
                     })
                     ->first();
-    
+
                     // aun no hay tabla pendiente
                     if($inscrito){
                         $calificaciones = Bachiller_inscritos::where('id',$inscrito->id)
@@ -2154,14 +2154,14 @@ class BachillerRecuperativosController extends Controller
                     }else{
                         $aceptadaSinOrdinario = true;
                     }
-    
+
                     $historicosX2 = Bachiller_historico::where('alumno_id',$inscritoExt->alumno_id)
                         ->where('bachiller_materia_id',$inscritoExt->bachiller_extraordinario->materia_id)
                         ->where('histTipoAcreditacion','O2')->get();
                     if(count($historicosX2) > 0){
                         $ultOportunidad = true;
                     }
-    
+
                 }else{
                     //Chetumal
                     $inscrito = Bachiller_cch_inscritos::with('curso','bachiller_cch_grupo')
@@ -2181,7 +2181,7 @@ class BachillerRecuperativosController extends Controller
                     }else{
                         $aceptadaSinOrdinario = true;
                     }
-    
+
                     $historicosX2 = Bachiller_historico::where('alumno_id',$inscritoExt->alumno_id)
                         ->where('bachiller_materia_id',$inscritoExt->bachiller_extraordinario->materia_id)
                         ->where('histTipoAcreditacion','X2')->get();
@@ -2189,7 +2189,7 @@ class BachillerRecuperativosController extends Controller
                         $ultOportunidad = true;
                     }
                 }
-    
+
                 if($extraUpdated){
                     alert('Escuela Modelo', 'La solicitud de recuperativo se ha guardado correctamente', 'success')->showConfirmButton();
                 }else{
@@ -2198,7 +2198,7 @@ class BachillerRecuperativosController extends Controller
                         , 'warning')
                     ->showConfirmButton();
                 }
-    
+
                 // Unix
                 setlocale(LC_TIME, 'es_ES.UTF-8');
                 // En windows
@@ -2221,13 +2221,13 @@ class BachillerRecuperativosController extends Controller
                 $pdf->setPaper('letter', 'portrait');
                 $pdf->defaultFont = 'Times Sans Serif';
                 return $pdf->stream($nombreArchivo . '.pdf');
-    
+
                 // return redirect()->back();
-    
+
             } catch (QueryException $e) {
                 $errorCode = $e->errorInfo[1];
                 $errorMessage = $e->errorInfo[2];
-    
+
                 alert()->error('Error...' . $errorCode, $errorMessage)->showConfirmButton();
                 return redirect()->back()->withInput();
             }
@@ -2236,7 +2236,7 @@ class BachillerRecuperativosController extends Controller
             return redirect()->back();
         }
 
-        
+
     }
 
     public function generarRecuprativoPDF($extraordinario_id)
@@ -2245,14 +2245,14 @@ class BachillerRecuperativosController extends Controller
         //
         $alumno = Alumno::where('aluClave', Auth::user()->username)->first();
         $alumno_id = $alumno->id;
-        // 
+        //
         $inscritoExt = Bachiller_inscritosextraordinarios::where('alumno_id', $alumno_id)->where('extraordinario_id', '=', $extraordinario_id)->first();
         //
         $fechaActual = Carbon::now('CDT');
         $aceptadaSinOrdinario = false;
         $ultOportunidad = false;
         //
-        $results = DB::select(DB::raw("SELECT
+        $results = DB::select("SELECT
           aluClave AS 'clave_pago',
           alumnos.id AS 'alumnos_id',
           alumnos.aluEstado,
@@ -2306,7 +2306,7 @@ class BachillerRecuperativosController extends Controller
             departamentos
           WHERE
             depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-        );"));
+        );");
         $cursos = collect($results)->first();
         $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                  ->where("id", $cursos->cursos_id)->first();

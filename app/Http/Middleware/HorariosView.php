@@ -19,7 +19,7 @@ class HorariosView
     public function handle($request, Closure $next)
     {
         {
-            $results = DB::select(DB::raw("SELECT
+            $results = DB::select("SELECT
             aluClave AS 'clave_pago',
             alumnos.id AS 'alumnos_id',
             alumnos.aluEstado,
@@ -73,30 +73,30 @@ class HorariosView
               departamentos
             WHERE
               depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-          );"));
+          );");
           $cursos = collect($results)->first();
           $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                    ->where("id", $cursos->cursos_id)->first();
           $ubicacion = $curso ? $curso->periodo->departamento->ubicacion : null;
-    
+
           if($ubicacion->ubiClave == "CME"){
-    
+
             $configAvanceBACCME = Portal_configuracion::Where('pcClave', 'VIEW_HORARIOS_CME')->first();
-            $AVANCE_BAC_CME = $configAvanceBACCME->pcEstado == 'A' ? true: false;    
-            
-    
+            $AVANCE_BAC_CME = $configAvanceBACCME->pcEstado == 'A' ? true: false;
+
+
             if($AVANCE_BAC_CME){
                 return $next($request);
             }else{
                 alert()->info("Escuela Modelo", "Por el momento la consulta de horarios no se encuentra disponible.")->showConfirmButton()->autoclose('5000');
                 return redirect('libreta_de_pago');
             }
-            
+
           }else{
-    
+
             $configAvanceBACCVA = Portal_configuracion::Where('pcClave', 'VIEW_HORARIOS_CVA')->first();
             $AVANCE_BAC_CVA = $configAvanceBACCVA->pcEstado == 'A' ? true: false;
-    
+
             if($AVANCE_BAC_CVA){
                 return $next($request);
             }else{
@@ -104,8 +104,8 @@ class HorariosView
                 return redirect('libreta_de_pago');
             }
           }
-    
-            
+
+
         }
     }
 }

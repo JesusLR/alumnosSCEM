@@ -17,10 +17,10 @@ class ExtrasBacCheck
      * @return mixed
      */
     // con este Middleware validamos que no pueda ingresar por medio de la URL cuando
-    // el modulo avace este desactivado 
+    // el modulo avace este desactivado
     public function handle($request, Closure $next)
     {
-        $results = DB::select(DB::raw("SELECT
+        $results = DB::select("SELECT
         aluClave AS 'clave_pago',
         alumnos.id AS 'alumnos_id',
         alumnos.aluEstado,
@@ -74,7 +74,7 @@ class ExtrasBacCheck
           departamentos
         WHERE
           depClave IN ('SUP', 'POS', 'PRE', 'MAT', 'PRI', 'SEC', 'BAC')
-      );"));
+      );");
       $cursos = collect($results)->first();
       $curso = Curso::with("alumno.persona", "periodo.departamento.ubicacion", "cgt.plan.programa")
                ->where("id", $cursos->cursos_id)->first();
@@ -83,8 +83,8 @@ class ExtrasBacCheck
       if($ubicacion->ubiClave == "CME"){
 
         $configAvanceBACCME = Portal_configuracion::Where('pcClave', 'VIEW_RECUPERATIVOS_CME')->first();
-        $AVANCE_BAC_CME = $configAvanceBACCME->pcEstado == 'A' ? true: false;    
-        
+        $AVANCE_BAC_CME = $configAvanceBACCME->pcEstado == 'A' ? true: false;
+
 
         if($AVANCE_BAC_CME){
             return $next($request);
@@ -92,7 +92,7 @@ class ExtrasBacCheck
             alert()->info("Escuela Modelo", "Por el momento no se encuentra disponible esta opción")->showConfirmButton()->autoclose('5000');
             return redirect('libreta_de_pago');
         }
-        
+
       }else{
 
         $configAvanceBACCVA = Portal_configuracion::Where('pcClave', 'VIEW_RECUPERATIVOS_CVA')->first();
@@ -106,6 +106,6 @@ class ExtrasBacCheck
         }
       }
 
-        
+
     }
 }
